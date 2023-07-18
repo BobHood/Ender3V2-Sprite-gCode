@@ -7,12 +7,12 @@ M190 S{material_bed_temperature_layer_0}    ; Wait for Heat Bed temperature
 M117 Home All Axis
 G28                                         ; Home all Axis
 
-;M117 Start Universal Bed Leveling (; = Remmed Out)
-;G29 A                                      ; Activate the UBL System.
-;G29 L0                                     ; Load UBL at slot 0
-;G29 J2                                     ; 4-point level
-;G29 F10.0                                  ; Fade to 10mm
-;G92 E0                                     ; Reset Extruder
+M117 Start Universal Bed Leveling
+G29 A                                      ; Activate the UBL System.
+G29 L0                                     ; Load UBL at slot 0
+G29 J2                                     ; 4-point quick level
+G29 F10.0                                  ; Fade to 10mm
+G92 E0                                     ; Reset Extruder
 ; End UBL
 
 ;M117 Start CR-Touch Bed level (; = Remmed Out)
@@ -47,18 +47,18 @@ M300 S300 P2000                            ; Play a tone to notify printing star
 
 
 
-;;;;; Original :;;;;;;
+;;;;; Original Start Code: ;;;;;;
 ; Ender 3 Custom Start G-code
-G92 E0 ; Reset Extruder
-G28 ; Home all axes
-M104 S{material_standby_temperature} ; Start heating up the nozzle most of the way
-M190 S{material_bed_temperature_layer_0} ; Start heating the bed, wait until target temperature reached
-M109 S{material_print_temperature_layer_0} ; Finish heating the nozzle
-G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
-G1 X0.1 Y20 Z0.3 F5000.0 ; Move to start position
-G1 X0.1 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line
-G1 X0.4 Y200.0 Z0.3 F5000.0 ; Move to side a little
-G1 X0.4 Y20 Z0.3 F1500.0 E30 ; Draw the second line
-G92 E0 ; Reset Extruder
-G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
-G1 X5 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish
+;G92 E0 ; Reset Extruder
+;G28 ; Home all axes
+;M104 S{material_standby_temperature} ; Start heating up the nozzle most of the way
+;M190 S{material_bed_temperature_layer_0} ; Start heating the bed, wait until target temperature reached
+;M109 S{material_print_temperature_layer_0} ; Finish heating the nozzle
+;G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+;G1 X0.1 Y20 Z0.3 F5000.0 ; Move to start position
+;G1 X0.1 Y200.0 Z0.3 F1500.0 E15 ; Draw the first line
+;G1 X0.4 Y200.0 Z0.3 F5000.0 ; Move to side a little
+;G1 X0.4 Y20 Z0.3 F1500.0 E30 ; Draw the second line
+;G92 E0 ; Reset Extruder
+;G1 Z2.0 F3000 ; Move Z Axis up little to prevent scratching of Heat Bed
+;G1 X5 Y20 Z0.3 F5000.0 ; Move over to prevent blob squish
